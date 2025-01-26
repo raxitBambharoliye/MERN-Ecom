@@ -1,0 +1,30 @@
+@media (min-width:992px) {
+    aside {
+        position: sticky;
+        top: 20px;
+        height: 100%;
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        transition: all .2s linear;
+        width:300px;
+        flex-shrink: 0;
+        padding: 20px;
+        transform-origin: center left;
+    }
+
+    .hide {
+        transform: scaleX(0) ;
+        width: 0;
+    }
+
+    header {
+        /* position: sticky;
+        top: 20px; */
+        padding: 10px 20px;
+    }
+
+    .main {
+        transition: all .2s linear;
+        flex-grow: 1;
+    }
+}

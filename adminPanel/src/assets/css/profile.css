@@ -1,0 +1,53 @@
+.profileImage img {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+}
+
+.profilePreview {
+    background-color: var(--bg-white);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.profilePreviewData {
+    flex-grow: 1;
+}
+
+.profilePreviewSmData {
+    color: var(--gray);
+    margin-right: 12px;
+}
+
+.profilePreviewSmData i {
+    margin-right: 6px;
+}
+
+.adminDataOverviewItem {
+    margin: 0 6px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px dotted var(--gray);
+    min-width: 100px;
+}
+
+.adminDataOverviewItem .icon {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.adminDataOverviewItem p {
+    text-align: center;
+    color: var(--gray);
+    font-size: 1.2rem;
+}
+.profileDetail .card-header{
+    background-color: var(--bg-white);
+}
+.profileDetail .card{
+    border-radius: 12px;
+    border: none;
+}
+.profileDetailItem .title{
+    color: var(--gray);
+}

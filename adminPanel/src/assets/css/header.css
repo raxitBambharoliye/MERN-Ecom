@@ -1,0 +1,110 @@
+header{
+    padding: 10px 0;
+    background-color: var(--light-gray);
+}
+header .profileImage img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}   
+
+
+
+/* aside */
+
+.aside-inner{
+    gap: 40px;
+    justify-content: space-between;
+    min-height: calc(100vh - 95px);
+
+}
+.sideMenuList,.subMenuList{
+    list-style: none;
+}
+.sideMenuList{
+    -webkit-box-flex:1;
+    flex-grow: 1;
+}
+.sideMenu>a{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: var(--bg-white);
+    padding: 10px 8px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color:var(--black);    
+}
+.subMenuList{
+    border-radius: 10px;
+}
+.subMenuList {
+    border-radius: 10px;
+    box-shadow: 0 0 6px 1px #afacac;
+    display: none;
+    transform-origin: top center;
+    background-color: var(--gray);
+    color: var(--bg-white);
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+.subMenu a{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: all .2s linear;
+}
+.subMenu a:hover{
+    background-color: var(--light-gray);
+    color: var(--black);
+
+}
+
+.subMenuIcon{
+    font-size: 20px;
+    margin-right: 8px;
+}
+.menuIcon{
+    font-size: 22px;
+    margin-right: 8px;
+}
+/* profile dropdown */
+.userProfile{
+    cursor: pointer;
+}
+
+.userProfileDropDown{
+    transition: all .4s linear;
+    display: none;
+}
+
+.userProfileDropDown ul{
+    z-index: 999;
+    border-radius: 12px;
+    position: absolute;
+    top: 100%;
+    min-width: 200px;
+    right: 0;
+    background-color: var(--bg-white);
+    padding:  0;
+    list-style: none;
+    overflow: hidden;
+    box-shadow: 0 0 6px 1px #afacac;
+
+}
+.userProfileDropDown li a{
+    display: block;
+    text-decoration: none;
+    color: var(--black);        
+    padding: 10px 12px;
+    font-size: 18px;
+    transition: all .2s linear;
+}
+.userProfileDropDown li a:hover{
+    background-color: var(--light-black);
+    color: var(--bg-white);
+}

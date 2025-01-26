@@ -1,0 +1,6 @@
+.loginForm{
+    background-color: var(--bg-white);
+    padding: 20px;
+    border-radius: 12px;
+    /* min-width: 300px */
+}
