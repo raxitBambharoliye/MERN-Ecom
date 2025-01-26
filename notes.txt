@@ -1,0 +1,18 @@
+//NOTE - text editor
+
+- complete check add product page.
+- edit product page.
+
+//NOTE - FRONT
+- attach font 
+- check header
+- check all page responsive content
+- check home page.
+- make responsive 
+
+
+- complete single page.
+
+//Pending - 
+-product not found page 
+hello world check 

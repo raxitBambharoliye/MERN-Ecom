@@ -1,0 +1,45 @@
+.category{
+    padding: 30px 0 ;
+}
+.categoryImg{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.categoryItem{
+    padding: 12px 0;
+    color: #6a6a6a;
+    transition: all .4s linear;
+    text-align: center;
+}
+.categoryItem p {
+    font-size: 1rem;
+    margin: 0;
+}
+.categoryItem:hover {
+
+    cursor: pointer;
+    color: black;
+}
+.categoryItem:hover img{
+    transition: all .2s linear;
+
+    filter: drop-shadow(0 0 5px #000);
+}
+body ::-webkit-scrollbar {
+    width: 10px;
+    margin-top: 3px;
+    height: 5px;
+    background-color: transparent;
+}
+
+body ::-webkit-scrollbar-thumb {
+    background: #34343496 !important;
+    width: 8px;
+    height: 8px;
+    border-radius: 20px;
+}
+.category .spanRow {
+    gap: 0;
+}

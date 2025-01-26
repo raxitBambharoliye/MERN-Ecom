@@ -1,0 +1,27 @@
+
+@media (min-width:768px) {
+}
+@media (min-width:992px) {
+    .menuInner {
+        transition: all .2s linear;
+        position: static !important;
+        background-color:transparent !important;
+        transition: all .3s ease-in-out;
+        transform: translateX(-0);
+        display: flex;
+    }
+
+    .ProductsSmallImages{
+        height: 400px;
+    }
+    .ProductsSmallImages::-webkit-scrollbar{
+        width: 5px;
+    }
+}
+
+@media (min-width:1200px) {
+
+}
+@media (min-width:1400px) {
+
+}

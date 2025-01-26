@@ -1,0 +1,146 @@
+.singleProductData {
+    padding: 90px 0;
+}
+
+.singleProductLeft {
+    /* height: 480px; */
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.singleProductSmallImage {
+    overflow: hidden;
+
+}
+.singleProductSmallImage img{
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
+.singleProductSmallImage:hover img,.singleProductSmallImage.active img{
+    border: 2px solid #000000;
+}
+.ProductsSmallImages{
+    padding-right: 2px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.singleProductImage {
+    height: 420px;
+}
+
+.singleProductImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.singleProductRight {
+    padding: 20px;
+}
+
+.singleProductRight h2 {
+    color: rgb(16, 15, 15);
+}
+
+.singleProductRight p {
+    color: #929191;
+}
+
+.singleProductRight h3 {
+    font-weight: 700;
+}
+
+.singleProductRight h3 span {
+    color: #929191;
+    text-decoration: line-through;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.singleProductRight .discount {
+    font-size: 18px;
+}
+
+.singleProductRight .discount span {
+    color: black;
+}
+
+.singleProductRight>button {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.quantityBtn {
+    background-color: rgb(0, 0, 0);
+    color: #fff3f3;
+    border: 1px solid #929191;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.quantityInput {
+    border: 1px solid #929191;
+    width: 50px;
+    margin: 0 4px;
+    display: block;
+}
+
+
+/* ///////////////////////////////////////////////////////////////// */
+/* customer review  */
+.customerReview {
+    padding-bottom: 90px;
+}
+
+.customerReviewRateItem p {
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.customerRateProgressBar {
+    margin: 6px 0;
+    margin-left: 0 !important;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-grow: 1;
+    background-color: #F0F2F2;
+    margin-left: 15px;
+    width: 100%;
+    box-shadow: inset 0 0 0 1px #BBBFBF;
+}
+
+.customerRateProgressBar .ratProgress {
+    font-weight: 600;
+    padding: 1px 12px;
+    border-radius: 0 20px 20px 0;
+    background-color: #FFA41C;
+    box-shadow: inset -2px 0 0 -1px #F5961D, inset 0 0 0 1px #DE7921;
+    text-wrap: nowrap;
+}
+
+.star {
+    font-size: 25px;
+    color: #fca92de6;
+    text-shadow: inset -2px 0 0 -1px #F5961D, inset 0 0 0 1px #c56714;
+}
+/* ///////////////////////////////// */
+.customerReviewInner{
+    height: 200px;
+    /* border: 1px solid #000; */
+    overflow: scroll;
+}
+.customerReviewItem{
+    margin-bottom: 12px;
+}
+.customerReviewItem .customerProfile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 6px;
+}
+.productDescription {
+    color: #000000 !important;
+}
