@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom'
 import { getToken, getUser } from '../../utility/common';
 import { useDispatch } from 'react-redux';
 import { setLogin } from '../../store/auth.slice';
+import AddReview from '../AddReview/AddReview';
 
 function Root() {
     const dispatch = useDispatch();
@@ -23,6 +24,8 @@ function Root() {
                 <Outlet />
             </main>
             <Footer />
+      <AddReview/>
+
         </>
     )
 }

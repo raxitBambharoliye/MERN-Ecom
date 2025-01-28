@@ -5,9 +5,7 @@ import logger from "../../utility/log"
 
 const frontAllCategory= async (req:any,res:any)=>{
     try {
-        console.log("checking:::::")
         let data= await MQ.find(MODAL.CATEGORY_MODAL,{isActive:true});
-        console.log('data', data)
         if(data){
             res.status(200).json({allCategory:data});
         }
@@ -20,14 +18,11 @@ const frontAllCategory= async (req:any,res:any)=>{
 const frontAllProduct = async (req: any, res: any) => {
     try {
         let query:any ={ isActive: true };
-        console.log('req.query.singleId 👉👉👉 ', req.query.singleId)
         if (req.query.singleId) {
             query._id = req.query.singleId;
         }
-        console.log('query', query)
 
         let data = await MQ.find(MODAL.PRODUCT_MODAL,query );
-        console.log('data', data)
         if (data) {
             res.status(200).json({allProducts:data});
         } else {

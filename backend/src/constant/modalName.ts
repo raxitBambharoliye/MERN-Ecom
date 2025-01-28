@@ -3,5 +3,6 @@ export = Object.freeze({
     CONTACT_MODAL: "Contact",
     ADMIN_MODAL:"Admin",
     CATEGORY_MODAL: "Category",
-    PRODUCT_MODAL:"Product"
+    PRODUCT_MODAL: "Product",
+    PRODUCT_REVIEW_MODAL: "ProductReview",
 })

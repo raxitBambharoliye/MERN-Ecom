@@ -4,6 +4,7 @@ import AdminModal from "../model/admin.modal";
 import CategoryModal from "../model/category.modal";
 import ContactModal from "../model/constact.model";
 import ProductModal from "../model/product.modal";
+import Product_Review_modal from "../model/productReview.modal";
 import { UserModal } from "../model/user.modal";
 import logger from "../utility/log";
 
@@ -25,6 +26,9 @@ class MongoQ {
         break;
       case MODAL.PRODUCT_MODAL:
         this.collection = ProductModal;
+        break;
+      case MODAL.PRODUCT_REVIEW_MODAL:
+        this.collection = Product_Review_modal;
         break;
     }
   }

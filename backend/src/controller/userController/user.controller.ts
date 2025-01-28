@@ -88,4 +88,27 @@ const editProfile = async (req: any, res: any) => {
   }
 };
 
-export { UserRegister, UserLogin, UserAddContact, editProfile };
+const addProductReview = async (req: any, res: any) => {
+  try {
+    const { userId, productId, reviewMessage,rating } = req.body;
+    const reviewData = {
+      userId,
+      productId,
+      reviewMessage,
+      rating
+    }
+    let data = await MQ.addData(MODAL.PRODUCT_REVIEW_MODAL, reviewData);
+    logger.info("data ", data);
+    if (data) {
+      res.status(200).json({ message: "review added successfully", review: data })
+    }
+    else {
+      res.status(500).json({ message: "someThing want wrong, review not added" })
+    }
+  } catch (error) {
+    logger.error(`CATCH ERROR : IN : user : addProductReview : 🐞🐞🐞 :\n ${error}`);
+    
+  }
+}
+
+export { UserRegister, UserLogin, UserAddContact, editProfile,addProductReview };

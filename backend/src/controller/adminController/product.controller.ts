@@ -215,13 +215,6 @@ const allProduct = async (req: any, res: any) => {
 };  
 const editProduct = async (req: any, res: any) => {
   try {
-    console.log(req.body.inStock);
-    console.log(req.body.isActive);
-
-    console.log(req.files)
-    console.log( req.body.removeImage)  
-
-
     const productData = await MQ.findById<ProductIn>(
       MODAL.PRODUCT_MODAL,
       req.body.product_id

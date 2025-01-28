@@ -4,6 +4,8 @@ import '../../assets/css/singleProduct.css'
 import axiosClient from '../../utility/api/axiosClient';
 import url from '../../components/constant/url';
 import { useParams } from 'react-router-dom';
+import AddReview from '../../components/AddReview/AddReview';
+import { useSelector } from 'react-redux';
 function SingleProduct() {
 
   const { id } = useParams();
@@ -11,6 +13,9 @@ function SingleProduct() {
   const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState(1)
   const [singleProduct, setSingleProduct] = useState({});
+  const auth = useSelector((state) => state.AuthReducer);
+  console.log('auth', auth)
+
   if (!id) {
     return (<><h1>Product not found</h1></>)
   }
@@ -69,8 +74,8 @@ function SingleProduct() {
             <div className="col-12 col-lg-6">
               <div className=" singleProductRight">
                 <h2>{singleProduct.name} </h2>
-                <h3>$ 44 <span>100$</span> </h3>
-                <p className='discount'>save up to <span>50%</span>  </p>
+                <h3>$ {singleProduct.price*singleProduct.discount /100 } <span>{ singleProduct.price}$</span> </h3>
+                <p className='discount'>save up to <span>{singleProduct.discount}%</span>  </p>
                 <div className="quantity d-flex align-items-center mb-3">
                   <button className='quantityBtn' onClick={(e) => { setQuantity((q) => q - 1) }}> - </button>
                   <input type='text' disabled className='form-control quantityInput' value={quantity}></input>
@@ -185,7 +190,7 @@ function SingleProduct() {
                 </div>
               </div>
               <div className="addButton px-4 px-lg-0">
-                <Button className={"btn-rounded"} >Create Review</Button>
+                {(auth.userData && auth.userData.email && auth.userData._id) &&<Button className={"btn-rounded"}  data-bs-toggle="modal" data-bs-target="#AddProductReview" >Create Review</Button>}
               </div>
             </div>
           </div>

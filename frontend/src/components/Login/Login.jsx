@@ -27,13 +27,13 @@ function Login() {
             }
         } catch (error) {
             console.log(error)
-            // if (error && error.response.status && error.response.status == 400 && error.response.data.error.length>0) {
-            //     error.response.data.error.forEach(element => { 
-            //         setError(element.path, {
-            //             message: element.msg
-            //         })
-            //     });
-            // }
+            if (error && error.response.status && error.response.status == 400 && error.response.data.error.length>0) {
+                error.response.data.error.forEach(element => { 
+                    setError(element.path, {
+                        message: element.msg
+                    })
+                });
+            }
             console.log("CATCH ERROR IN : Login : ")
         }
     }
@@ -51,7 +51,7 @@ function Login() {
                 <div className="modal-dialog modal-dialog-centered "  >
                     <form action="" className="modal-content form" onSubmit={handleSubmit(submitHan)} >
 
-                        <div className="modal-header justify-content-center" data-bs-theme="dark"   >
+                        <div className="modal-header justify-content-center"    >
                             <h1 className="text-center flex-grow-1" id="staticBackdropLabel">
                                 Light Store
                             </h1>
@@ -85,7 +85,7 @@ function Login() {
                         </div>
                         <div className="modal-footer">
                             <Link className='fromLInk' data-bs-toggle="modal" data-bs-target="#register" >create new Account</Link>
-                            < Button className=' rounded light ' type='submit' children='LogIn' />
+                            < Button className=' rounded ' type='submit' children='LogIn'  />
                         </div>              
                     </form>
                 </div>

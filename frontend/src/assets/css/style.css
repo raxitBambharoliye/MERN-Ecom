@@ -13,13 +13,20 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.modal-backdrop.fade.show{
+    height: 100% !important;
+    width: 100% !important;
+}
+.modal.fade.show{
+    padding: 0 !important;
+}
 html {
     min-width: 500px;
 }
 
 body {
     font-family: var(--poppins);
+    padding: 0 !important;
 }
 
 label {
@@ -583,8 +590,8 @@ footer .d-flex {
 
 
 .form {
-    background-color: rgb(0, 0, 0);
-    color: white;
+    background-color: rgba(245, 245, 245, 0.988);
+    color: rgb(0, 0, 0);
 }
 
 .form h1 {
@@ -596,8 +603,8 @@ footer .d-flex {
 .input:focus {
     background-color: transparent !important;
     border: none !important;
-    border-bottom: 1px solid #fff !important;
-    color: #fff !important;
+    border-bottom: 1px solid #000000 !important;
+    color: #000000 !important;
 }
 
 .input:focus {
@@ -614,7 +621,7 @@ footer .d-flex {
 }
 
 .fromLInk {
-    color: rgb(149, 149, 232);
+    color: rgb(85, 85, 252);
     text-decoration: underline;
     cursor: pointer;
 }

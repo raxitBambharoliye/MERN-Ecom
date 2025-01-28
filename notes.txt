@@ -3,16 +3,16 @@
 - complete check add product page.
 - edit product page.
 
-//NOTE - FRONT
-- attach font 
-- check header
-- check all page responsive content
-- check home page.
-- make responsive 
-
+//NOTE - 
+- create static constant for api and etc.
 
 - complete single page.
-
+    -reviews
+        - add reviews in product 
+        - show reviews 
+        - reviews calculate
+    - recommendations of same category products 
+    
 //Pending - 
--product not found page 
-hello world check 
+- product not found page 
+- all loaders 

@@ -3,7 +3,7 @@ import { userRouter } from "./user.router";
 import { reqAddAdminVAlidation, reqAddCategoryValidation, reqAddProductValidation, reqEditCategoryValidation, reqLoginValidation } from "../validation/reqValidation";
 import { AdminActive, AdminAdd, AdminAllAdminData, AdminDelete, AdminEditProfile, AdminLogin, activeUser, addUser, allUserData, deleteUser, editUser } from "../controller/adminController/admin.controller";
 import { upLoadImage } from "../middleware/multer";
-import reqEditAdminProfileValidation from "../validation/reqValidation/rea.editAdminProfile.vaidation";
+import reqEditAdminProfileValidation from "../validation/reqValidation/req.editAdminProfile.vaidation";
 import authToken from "../common/authToken";
 import { activeCategory, addCategory, allCategory, deleteCategory, editCategory } from "../controller/adminController/cetogry.controller";
 import { reqAddUserValidation } from "../validation/reqValidation/req.addUser.validation";
