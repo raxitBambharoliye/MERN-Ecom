@@ -1,20 +1,28 @@
 import React, { useId, useRef } from 'react';
-import { Button, Input } from '../common';
+import { Button, Input, PreviewImage } from '../common';
 import { useForm } from 'react-hook-form';
 import axiosClient from '../../utility/api/axiosClient';
 import { setToken, setUser } from '../../utility/common';
 
 function Register() {
     const inputRef = useRef();
-    const { register, handleSubmit, formState: { errors }, getValues,setError } = useForm();
+    const { register, handleSubmit, formState: { errors }, getValues, setError } = useForm();
 
 
     const registerSubmit = async (data) => {
         try {
-            const response = await axiosClient.post('/user/register', data)
-            if (response.status === 200 && response.data.token !='' && response.data.user) { 
+            const formData = new FormData();
+            if (data.userProfile[0]) {
+                formData.append("userProfile", data.userProfile[0]);
+            }
+            formData.append("email", data.email);
+            formData.append("userName", data.userName);
+            formData.append("password", data.password);
+
+            const response = await axiosClient.post('/user/register', formData)
+            if (response.status === 200 && response.data.token != '' && response.data.user) {
                 setToken(response.data.token);
-                setUser(response.data.user); 
+                setUser(response.data.user);
                 window.location.reload();
             }
             console.log(response.data)
@@ -54,6 +62,7 @@ function Register() {
                         />
                     </div>
                     <div className="modal-body login">
+                        <PreviewImage ref={inputRef} src={getValues("userProfile")} {...register("userProfile")} />
                         <Input label="Email : " type="email" className="input" placeholder='Enter your Email Id... ' ref={inputRef}
                             {...register("email", {
                                 required: "email required",
@@ -89,7 +98,7 @@ function Register() {
 
                     </div>
                     <div className="modal-footer">
-                        <Button className="rounded light" type="submit" children="Sign Up" ref={inputRef} />
+                        <Button className="rounded " type="submit" children="Sign Up" ref={inputRef} />
                     </div>
                 </form>
             </div>

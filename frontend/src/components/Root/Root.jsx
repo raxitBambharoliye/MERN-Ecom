@@ -24,7 +24,6 @@ function Root() {
                 <Outlet />
             </main>
             <Footer />
-      <AddReview/>
 
         </>
     )

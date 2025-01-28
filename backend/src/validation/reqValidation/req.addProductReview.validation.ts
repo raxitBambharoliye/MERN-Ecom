@@ -1,6 +1,7 @@
 import { body, validationResult } from "express-validator";
 import { MQ } from "../../common";
 import { MODAL } from "../../constant";
+import ReviewIn from "../../interface/Review.interface";
 
 const reqAddProductReviewValidation = [
   body("userId")
@@ -21,7 +22,7 @@ const reqAddProductReviewValidation = [
       if (!productData) {
         throw new Error("envalid product data");
       }
-      const reviewData: any = await MQ.find(MODAL.PRODUCT_REVIEW_MODAL, { userId: req.body.userId, productId: value });
+      const reviewData: any = await MQ.find<ReviewIn[]>(MODAL.PRODUCT_REVIEW_MODAL, { userId: req.body.userId, productId: value });
       if (reviewData && reviewData.length > 0) { 
         throw new Error("you already review this product");
       }

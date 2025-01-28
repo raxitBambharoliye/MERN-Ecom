@@ -83,10 +83,10 @@ function EditProfile() {
                     </div>
                     <div className="modal-body login">
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-12 col-lg-2">
                                 <label className="editProfileImg" htmlFor='proImg'>
-                                    {auth.userData.userProfile ? (
-                                        <img src={auth.userData.userProfile} className='position-absolute top-50 start-50 translate-middle ' alt="profileImage" />
+                                    {auth.userData.profile ? (
+                                        <img src={auth.userData.profile} className='position-absolute top-50 start-50 translate-middle ' alt="profileImage" />
                                     ) : (
                                         <img src={image} className='position-absolute top-50 start-50 translate-middle ' alt="profileImage" />
                                     )}
@@ -95,7 +95,7 @@ function EditProfile() {
                                 </label>
                                 <Input type='file' id="proImg" className="visually-hidden" {...register("userProfile")} accept='jpg jpeg png' onChange={previewHandle} />
                             </div>
-                            <div className="col-9">
+                            <div className="col-12 col-lg-9">
                                 <Input label="Email : " type="email" className="input bd-bark " placeholder='Enter your Email Id... ' ref={inputRef}
                                     {...register("email", {
                                         required: "email required",

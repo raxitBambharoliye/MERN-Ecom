@@ -38,11 +38,7 @@ function Header() {
                   {auth.isAuth ? (
                     <div className="dropdown">
                       <div className="profileButton btn-secondary dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {auth.userData.profile ? (
-                          <img src={auth.userData.profile} className='headerProfile me-2' alt="userProfile" />
-                        ) : (
-                          <img src={'./image/userPro.png'} className='headerProfile me-2' alt="userProfile" />
-                        )}
+                          <img src={auth.userData.profile ??'/image/userPro.png' } className='headerProfile me-2' alt="userProfile" />
                       </div>
                       <ul className="dropdown-menu">
                         <li>

@@ -1,18 +1,17 @@
-import React, { useId, useRef } from 'react'
-import { Button, Input, TextArea } from '../common'
-import Register from '../Register/Register'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import React, { useRef } from 'react'
+import { Button, TextArea } from '../common'
+import { useParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import axiosClient from '../../utility/api/axiosClient'
-import { getUser, setToken, setUser } from '../../utility/common'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setSingleProductReview, setSingleProductSummary } from '../../store/data.slice'
 
 function AddReview() {
     const { id } = useParams();
     const auth = useSelector((state) => state.AuthReducer);
-
-    const { register, formState: { errors, isSubmitting }, handleSubmit, setError } = useForm();
-
+    const dispatch = useDispatch();
+    const { register, formState: { errors }, handleSubmit, setError } = useForm();
+    const closeButtonRef = useRef();
     const submitHan = async (data) => {
         try {
             if (!id) {
@@ -30,15 +29,17 @@ function AddReview() {
             data.userId = auth.userData._id;
             data.productId = id;
             const response = await axiosClient.post('/user/addProductReview', data);
-            if (response && response.status === 200) { 
-                console.log("review response",response);
+            if (response && response.status === 200) {
+                closeButtonRef.current.click();
+                dispatch(setSingleProductSummary(response.data.reviewSummary));
+                dispatch(setSingleProductReview(response.data.reviewData));
             }
         } catch (error) {
-            console.log("test",error)
+            console.log("test", error)
             console.log('error.response', error.response)
 
-            if (error && error.response.status && error.response.status == 400 && error.response.data.error.length>0) {
-                error.response.data.error.forEach(element => { 
+            if (error && error.response.status && error.response.status == 400 && error.response.data.error.length > 0) {
+                error.response.data.error.forEach(element => {
                     setError(element.path, {
                         message: element.msg
                     })
@@ -69,38 +70,39 @@ function AddReview() {
                                 className="btn-close text-white"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"
+                                ref={closeButtonRef}
                             />
                         </div>
                         <div className="modal-body">
                             {errors.root && (<p className="ValidationError">{errors.root.message}</p>)}
-                            {errors.userId && (<p className="ValidationError">{errors.root.userId}</p>)}
-                            {errors.productId && (<p className="ValidationError">{errors.root.productId}</p>)}
+                            {errors.userId && (<p className="ValidationError">{errors.userId.message}</p>)}
+                            {errors.productId && (<p className="ValidationError">{errors.productId.message}</p>)}
 
                             <div className="rating">
                                 <div id="full-stars-example-two" className='mb-2'>
                                     <div id="full-stars-example-two">
                                         <div className="rating-group">
-                                            <input disabled defaultChecked className="rating__input rating__input--none" id="rating3-none" defaultValue={0} type="radio" name='rating'/>
+                                            <input disabled defaultChecked className="rating__input rating__input--none" id="rating3-none" defaultValue={0} type="radio" name='rating' />
                                             <label aria-label="1 star" className="rating__label" htmlFor="rating3-1">
                                                 <i className="rating__icon rating__icon--star fa fa-star" />
                                             </label>
-                                            <input className="rating__input" id="rating3-1" defaultValue={1} type="radio" {...register("rating",{required:"rating is required."})}/>
+                                            <input className="rating__input" id="rating3-1" defaultValue={1} type="radio" {...register("rating", { required: "rating is required." })} />
                                             <label aria-label="2 stars" className="rating__label" htmlFor="rating3-2">
                                                 <i className="rating__icon rating__icon--star fa fa-star" />
                                             </label>
-                                            <input className="rating__input" id="rating3-2" defaultValue={2} type="radio" {...register("rating",{required:"rating is required."})}/>
+                                            <input className="rating__input" id="rating3-2" defaultValue={2} type="radio" {...register("rating", { required: "rating is required." })} />
                                             <label aria-label="3 stars" className="rating__label" htmlFor="rating3-3">
                                                 <i className="rating__icon rating__icon--star fa fa-star" />
                                             </label>
-                                            <input className="rating__input" id="rating3-3" defaultValue={3} type="radio" {...register("rating",{required:"rating is required."})}/>
+                                            <input className="rating__input" id="rating3-3" defaultValue={3} type="radio" {...register("rating", { required: "rating is required." })} />
                                             <label aria-label="4 stars" className="rating__label" htmlFor="rating3-4">
                                                 <i className="rating__icon rating__icon--star fa fa-star" />
                                             </label>
-                                            <input className="rating__input" id="rating3-4" defaultValue={4} type="radio" {...register("rating",{required:"rating is required."})}/>
+                                            <input className="rating__input" id="rating3-4" defaultValue={4} type="radio" {...register("rating", { required: "rating is required." })} />
                                             <label aria-label="5 stars" className="rating__label" htmlFor="rating3-5">
                                                 <i className="rating__icon rating__icon--star fa fa-star" />
                                             </label>
-                                            <input className="rating__input" id="rating3-5" defaultValue={5} type="radio" {...register("rating",{required:"rating is required."})}/>
+                                            <input className="rating__input" id="rating3-5" defaultValue={5} type="radio" {...register("rating", { required: "rating is required." })} />
                                         </div>
                                     </div>
 

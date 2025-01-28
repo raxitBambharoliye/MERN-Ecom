@@ -20,15 +20,14 @@ function Login() {
         try {
 
             const response = await axiosClient.post('/user/login', data);
-            if (response.status == 200 && response.data.token !='' && response.data.user) {
                 setToken(response.data.token);
                 setUser(response.data.user); 
                 window.location.reload();
-            }
-        } catch (error) {
+            
+        } catch (error) { 
             console.log(error)
-            if (error && error.response.status && error.response.status == 400 && error.response.data.error.length>0) {
-                error.response.data.error.forEach(element => { 
+            if (error && error.response.status && error.response.status == 400 && error.response.data.error.length > 0) {
+                error.response.data.error.forEach((element) => {
                     setError(element.path, {
                         message: element.msg
                     })
@@ -37,6 +36,7 @@ function Login() {
             console.log("CATCH ERROR IN : Login : ")
         }
     }
+
     return (
         <>
             <div

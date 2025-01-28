@@ -1,18 +1,21 @@
-//NOTE - text editor
+//NOTE -
 
-- complete check add product page.
-- edit product page.
 
 //NOTE - 
 - create static constant for api and etc.
+- add address page 
+- edit product page.
+- create single product admin in admin panel.
 
-- complete single page.
-    -reviews
-        - add reviews in product 
-        - show reviews 
-        - reviews calculate
-    - recommendations of same category products 
-    
 //Pending - 
-- product not found page 
+- product not,404, found page 
 - all loaders 
+- view all single user data in one page.
+- add to cart 
+- order page 
+- payment gateway
+- add products 
+- recommendations of same category products 
+- edit products page 
+- edit Products preview image ont working
+- 

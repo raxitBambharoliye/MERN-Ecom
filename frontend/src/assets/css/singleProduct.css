@@ -113,17 +113,30 @@
 
 .customerRateProgressBar .ratProgress {
     font-weight: 600;
-    padding: 1px 12px;
     border-radius: 0 20px 20px 0;
+    padding: 2px 0;
     background-color: #FFA41C;
     box-shadow: inset -2px 0 0 -1px #F5961D, inset 0 0 0 1px #DE7921;
     text-wrap: nowrap;
 }
-
+.customerRateProgressBar .ratProgress p{
+    margin: 0;
+    padding: 0px 12px;
+}
 .star {
-    font-size: 25px;
+    font-size: 22px;
     color: #fca92de6;
     text-shadow: inset -2px 0 0 -1px #F5961D, inset 0 0 0 1px #c56714;
+}
+.rate p{
+    font-size: 18px;
+    font-weight: 600;
+}
+.customerReviewMessage p{
+    font-size: 1rem;
+}
+.customerReviewItem i{
+    font-size: 1rem;
 }
 /* ///////////////////////////////// */
 .customerReviewInner{
@@ -178,4 +191,8 @@
   #full-stars-example-two .rating__input:hover ~ .rating__label .rating__icon--star {
     color: #ddd;
   }
-  
+  .noReviewText{
+    color: #9d9898;
+    font-size: 40px;
+    font-weight: 900;
+  }

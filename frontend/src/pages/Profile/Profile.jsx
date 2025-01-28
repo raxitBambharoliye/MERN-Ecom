@@ -21,7 +21,7 @@ function Profile() {
             <section className='ProfileView'>
                 <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-4">
+                        <div className="col-12 col-lg-4">
                             <div className="profileLeft d-flex flex-column align-items-center justify-content-around">
                                 {auth.userData.profile ? (
                                     <img src={auth.userData.profile} className='profilePic' alt="" />
@@ -41,7 +41,7 @@ function Profile() {
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-7">
+                        <div className="col-12 col-lg-7">
                             <div className="profileRight">
                                 <h2 className='profileTitle'>{time} {auth.userData.userName}</h2>
                                 <div className="addresses">
@@ -80,8 +80,8 @@ function Profile() {
                                         <h3>Cart Products</h3>
                                     </div>
                                     <div className="productsInner mt-2 ">
-                                        <div className="row gx-2 spanRow">
-                                            <div className="col-3 spanItem">
+                                        <div className="row gx-1 spanRow">
+                                            <div className="col-4 col-md-3 spanItem">
                                                 <div className="profileProductItem">
                                                     <img src="image/collection1.jpg" alt="leamp1" />
                                                     <div className="text">
@@ -90,7 +90,7 @@ function Profile() {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="col-3 spanItem">
+                                            <div className="col-4 col-md-3 spanItem">
                                                 <div className="profileProductItem">
                                                     <img src="image/collection1.jpg" alt="leamp1" />
                                                     <div className="text">
@@ -99,7 +99,7 @@ function Profile() {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="col-3 spanItem">
+                                            <div className="col-4 col-md-3 spanItem">
                                                 <div className="profileProductItem">
                                                     <img src="image/collection1.jpg" alt="leamp1" />
                                                     <div className="text">
@@ -108,7 +108,7 @@ function Profile() {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="col-3 spanItem">
+                                            <div className="col-4 col-md-3 spanItem">
                                                 <div className="profileProductItem">
                                                     <img src="image/collection1.jpg" alt="leamp1" />
                                                     <div className="text">
@@ -117,7 +117,7 @@ function Profile() {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="col-3 spanItem">
+                                            <div className="col-4 col-md-3 spanItem">
                                                 <div className="profileProductItem">
                                                     <img src="image/collection1.jpg" alt="leamp1" />
                                                     <div className="text">

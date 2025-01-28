@@ -5,7 +5,7 @@ import { upLoadImage } from "../middleware/multer";
 
 const router = Router();
 
-router.post('/register', reqRegisterValidation ,UserRegister);
+router.post('/register',  upLoadImage.single("userProfile"),reqRegisterValidation ,UserRegister);
 router.post('/login', reqLoginValidation, UserLogin);
 
 router.post('/addContact', reqAddContactValidation, UserAddContact);

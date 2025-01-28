@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let init = {
     singleProductId: "",
-    categoryId:"",
+    categoryId: "",
+    singleProductReview: null,
+    singleProductSummary: null
 }
 const DataSlice = createSlice({
     name: "data",
@@ -10,16 +12,21 @@ const DataSlice = createSlice({
     reducers: {
         changeSingleProductId: changeSingleProductIdFun,
         changeCategoryId: (state, action) => state.categoryId = action.payload,
-
+        setSingleProductReview: setSingleProductReviewFun,
+        setSingleProductSummary: setSingleProductSummaryFun
     }
 })
 
 
 
-function changeSingleProductIdFun(state, action)  {
+function changeSingleProductIdFun(state, action) {
     state.singleProductId = action.payload;
 }
-
-
-export const { changeSingleProductId ,changeCategoryId} = DataSlice.actions;
+function setSingleProductReviewFun(state, action) {
+    state.singleProductReview = action.payload;
+}
+function setSingleProductSummaryFun(state, action) {
+    state.singleProductSummary = action.payload;
+}
+export const { changeSingleProductId, changeCategoryId, setSingleProductReview, setSingleProductSummary } = DataSlice.actions;
 export const dataReducer = DataSlice.reducer;

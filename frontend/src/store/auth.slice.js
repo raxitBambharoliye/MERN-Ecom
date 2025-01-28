@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
-import cookies from 'js-cookies'
+import cookie from 'js-cookies'
+
 import { Navigate } from "react-router-dom";
 const init = {
     isAuth: false,
@@ -28,8 +29,8 @@ function setLoginFan(state, action) {
 function logOutFan(state,action) {
     state.isAuth = false;
     state.userData = null;
-    cookies.removeItem('userToken');
-    cookies.removeItem('user');
+    cookie.removeItem('userToken');
+    cookie.removeItem('user');
     window.location.reload()
 }
 export const { changeLogin, logOut,setLogin } = AuthSlice.actions;

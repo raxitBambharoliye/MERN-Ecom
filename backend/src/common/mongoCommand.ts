@@ -123,7 +123,16 @@ class MongoQ {
       return null;
     }
   }
+  async findWithPopulate<T>(modal:string,query:any,populateField:string,populateValue:string):  Promise<[T] | null> {
+    try {
+      this.selectModal(modal);
+      let data: any = await this.collection.find(query).populate(populateField,populateValue);
+      return data;
+    } catch (error) {
+      logger.error(`CATCH ERROR IN :: findWithPopulate :: 🤷‍♂️🤷‍♂️🤷‍♂️ :: \n :: ${error}`);
+      return null;
+    }
+  }
 }
-
 const MQ = new MongoQ();
 export default MQ;

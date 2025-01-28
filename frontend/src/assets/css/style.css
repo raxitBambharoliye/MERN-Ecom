@@ -13,13 +13,16 @@
     padding: 0;
     box-sizing: border-box;
 }
-.modal-backdrop.fade.show{
+
+.modal-backdrop.fade.show {
     height: 100% !important;
     width: 100% !important;
 }
-.modal.fade.show{
+
+.modal.fade.show {
     padding: 0 !important;
 }
+
 html {
     min-width: 500px;
 }
@@ -531,9 +534,11 @@ footer {
     background-color: lightgray;
     padding: 50px 100px 0px 100px;
 }
+
 footer ul {
     list-style: none;
 }
+
 footer .logo {
     margin-right: 80px;
 }
@@ -718,11 +723,12 @@ footer .d-flex {
 }
 
 .headerProfile {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: contain;
     display: block;
+    object-fit: cover;
 }
 
 
@@ -740,7 +746,9 @@ footer .d-flex {
     height: 39rem;
     box-shadow: 0 0 15px 3px rgb(185 182 182 / 52%);
 }
-
+.profileLeft img{
+    object-fit: cover;
+}
 .profileLeft .profilePic {
     width: 170px;
     height: 170px;
@@ -858,15 +866,18 @@ footer .d-flex {
     height: 8px;
     border-radius: 20px;
 }
-html>::-webkit-scrollbar-track{
+
+html>::-webkit-scrollbar-track {
     border-radius: 20px;
     padding: 10px;
     background: rgba(58, 58, 58, 0.091);
 }
+
 ::selection {
     color: rgb(255, 255, 255);
     background: rgba(51, 51, 51, 0.742);
-  }
+}
+
 .spanItem {
     scroll-snap-align: center;
 }
@@ -887,7 +898,7 @@ html>::-webkit-scrollbar-track{
 }
 
 .profileProductItem img {
-    width: 117px;
+    width: 100%;
     height: 117px;
     object-fit: contain;
     border-radius: 6px;
@@ -951,4 +962,53 @@ html>::-webkit-scrollbar-track{
     z-index: -1;
     opacity: 0;
     transition: all .2s linear;
+}
+
+
+/* ///////////// preImage */
+.previewImageLabel {
+    position: relative;
+    overflow: hidden;
+}
+.previewImageLabel img{
+    object-fit: cover;
+}
+
+.previewImageLabel i {
+    color: black;
+    color: transparent;
+    font-size: 23px;
+    transition: all .2s linear;
+
+}
+
+.previewImageLabel::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.previewImageLabel:hover::before {
+    background-color: #11111197;
+}
+
+.previewImageLabel:hover i {
+    color: black;
+}
+
+.removeImgBtn {
+    position: absolute;
+    z-index: 999;
+    right: 5px;
+    top: 5px;
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: black;
+    border: none;
 }
