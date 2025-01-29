@@ -1,7 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import Root from "../components/Root/Root";
 import Private from "../components/Private/Private";
-import { AddCategory, ViewAdmin, ViewCategory ,AddUser,ViewUser,Profile,Login,AddAdmin,Dashboard, AddProduct, ViewProduct} from "../pages";
+import { AddCategory, ViewAdmin, ViewCategory ,AddUser,ViewUser,Profile,Login,AddAdmin,Dashboard, AddProduct, ViewProduct, SingleUser} from "../pages";
 import { APP_URL } from "../constant";
 
 
@@ -16,6 +16,7 @@ const privateRoute = [
     
     {path:APP_URL.RE_VIEW_USER_PAGE, element:<ViewUser />}, 
     {path:APP_URL.RE_ADD_USER_PAGE, element:<AddUser />}, 
+    {path:`${APP_URL.RE_SINGLE_USER_PROFILE}/:id`, element:<SingleUser />}, 
 
     {path:APP_URL.RE_ADD_PRODUCT_PAGE,element:<AddProduct />}, 
     {path:APP_URL.RE_VIEW_PRODUCT_PAGE,element:<ViewProduct />}, 

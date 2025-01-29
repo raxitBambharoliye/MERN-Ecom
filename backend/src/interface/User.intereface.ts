@@ -6,6 +6,7 @@ export interface UserIn{
     phone?: string;
     profile?: string;
     _id: string;
+    id: string;
     __v: number;
     createdAt: Date;
     updatedAt: Date;

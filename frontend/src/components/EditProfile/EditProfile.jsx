@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axiosClient from '../../utility/api/axiosClient';
 import { setUser } from '../../utility/common';
 import { setLogin } from '../../store/auth.slice';
+import { APP_URL } from '../constant';
 
 function EditProfile() {
     const auth = useSelector((state) => state.AuthReducer);
@@ -34,7 +35,7 @@ function EditProfile() {
             fromData.append("userId", auth.userData._id);
             if (data.phone) { fromData.append("phone", data.phone); }
 
-            let resData = await axiosClient.post('/user/editProfile', fromData)
+            let resData = await axiosClient.post(APP_URL.BE_EDIT_USER_PROFILE, fromData)
             console.log('resData.data.user :: RRR ', resData.data.user)
             if (resData.status === 200 && resData.data.user) {
                 setUser(resData.data.user);

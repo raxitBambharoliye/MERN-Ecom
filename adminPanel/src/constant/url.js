@@ -10,6 +10,7 @@ export default Object.freeze({
 
     RE_ADD_USER_PAGE: '/addUserPage',
     RE_VIEW_USER_PAGE: "/viewUserPage",
+    RE_SINGLE_USER_PROFILE: "/singeUserProfile",
     
     RE_ADD_PRODUCT_PAGE: '/addProductPage',
     RE_VIEW_PRODUCT_PAGE: "/viewProductPage",
@@ -32,7 +33,7 @@ export default Object.freeze({
     BE_ACTIVE_USER: '/activeUser',
     BE_DELETE_USER: '/deleteUser',
     BE_EDIT_USER:'/editProfile',
-
+    BE_SINGLE_USER_PROFILE:'/singleUserProfile',
 
     BE_ADD_PRODUCT:'/addProduct',
     BE_ACTIVE_PRODUCT:'/activeProduct',

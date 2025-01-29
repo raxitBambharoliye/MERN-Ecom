@@ -5,4 +5,5 @@ export = Object.freeze({
     CATEGORY_MODAL: "Category",
     PRODUCT_MODAL: "Product",
     PRODUCT_REVIEW_MODAL: "ProductReview",
+    ADDRESS_MODAL: "Address",
 })

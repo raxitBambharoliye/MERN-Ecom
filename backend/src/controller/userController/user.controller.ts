@@ -9,6 +9,7 @@ import { UserIn } from "../../interface/User.intereface";
 import fs from "fs";
 import path from "path";
 import ReviewIn from "../../interface/Review.interface";
+import AddressIN from "../../interface/Address.interface";
 const UserRegister = async (req: any, res: any) => {
   try {
     if (!req.body.role) {
@@ -42,9 +43,12 @@ const UserLogin = async (req: any, res: any) => {
       });
     }
     let token = await generateToken(user._id, user.email);
+    let addressData = await MQ.find(MODAL.ADDRESS_MODAL, { userId: user._id });
+
     res.status(200).json({
       token,
       user,
+      address: addressData,
     });
   } catch (error) {
     logger.error(`CATCH ERROR : IN : user : UserLogin : 🐞🐞🐞 : \n ${error} `);
@@ -129,5 +133,82 @@ const addProductReview = async (req: any, res: any) => {
     logger.error(`CATCH ERROR : IN : user : addProductReview : 🐞🐞🐞 :\n ${error}`);
   }
 };
+const addUserAddress = async (req: any, res: any) => {
+  try {
+    const { userId, address1, address2, city, state, pinCode, country, title, mapLink } = req.body;
+    let addressData: AddressIN = {
+      userId,
+      address1,
+      city,
+      state,
+      pinCode,
+      country,
+      title,
+    };
+    if (address2) addressData.address2 = address2;
+    if (mapLink) addressData.mapLink = mapLink;
 
-export { UserRegister, UserLogin, UserAddContact, editProfile, addProductReview };
+    let data = await MQ.addData(MODAL.ADDRESS_MODAL, addressData);
+    console.log("data", data);
+    if (data) {
+      let allAddress = await MQ.find<AddressIN[]>(MODAL.ADDRESS_MODAL, { userId: userId });
+      res.status(200).json({ message: "address added successfully", address: allAddress });
+    } else {
+      res.status(500).json({
+        message: "address not added",
+      });
+    }
+  } catch (error) {
+    console.log("error", error);
+    logger.error(`CATCH ERROR : IN : user : addUserAddress : 🐞🐞🐞 :\n ${error}`);
+  }
+};
+
+const editUserAddress = async (req: any, res: any) => {
+  try {
+    const { userId, address1, address2, city, state, pinCode, country, title, mapLink,id } = req.body;
+    let addressData: AddressIN = {
+      userId,
+      address1,
+      city,
+      state,
+      pinCode,
+      country,
+      title,
+    };
+    if (address2) addressData.address2 = address2;
+    if (mapLink) addressData.mapLink = mapLink;
+
+    let data = await MQ.findByIdAndUpdate(MODAL.ADDRESS_MODAL, id,addressData);
+    if (data) {
+      let allAddress = await MQ.find<AddressIN[]>(MODAL.ADDRESS_MODAL, { userId: userId });
+      res.status(200).json({ message: "address added successfully", address: allAddress });
+    } else {
+      res.status(500).json({
+        message: "address not added",
+      });
+    }
+  } catch (error) {
+    console.log("error", error);
+    logger.error(`CATCH ERROR : IN : user : editUserAddress : 🐞🐞🐞 :\n ${error}`);
+  }
+};
+
+const deleteUserAddress =async (req: any, res: any) => {
+  try {
+    let data = await MQ.findByIdAndDelete(MODAL.ADDRESS_MODAL, req.params.id);
+    if (data) {
+      let allAddress = await MQ.find<AddressIN[]>(MODAL.ADDRESS_MODAL, { userId: req.user._id });
+      res.status(200).json({ message: "address added successfully", address: allAddress });
+    } else {
+      res.status(500).json({
+        message: "address not added",
+      });
+    }
+  } catch (error) {
+    console.log('error', error)
+    logger.error(`CATCH ERROR : IN : user : deleteUserAddress : 🐞🐞🐞 :\n ${error}`);
+
+  }
+}
+export { UserRegister, UserLogin, UserAddContact, editProfile, addProductReview, addUserAddress, editUserAddress,deleteUserAddress };

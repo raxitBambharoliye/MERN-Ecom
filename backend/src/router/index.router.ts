@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { userRouter } from "./user.router";
 import { reqAddAdminVAlidation, reqAddCategoryValidation, reqAddProductValidation, reqEditCategoryValidation, reqLoginValidation } from "../validation/reqValidation";
-import { AdminActive, AdminAdd, AdminAllAdminData, AdminDelete, AdminEditProfile, AdminLogin, activeUser, addUser, allUserData, deleteUser, editUser } from "../controller/adminController/admin.controller";
+import { AdminActive, AdminAdd, AdminAllAdminData, AdminDelete, AdminEditProfile, AdminLogin, activeUser, addUser, allUserData, deleteUser, editUser, getSingleUserProfile } from "../controller/adminController/admin.controller";
 import { upLoadImage } from "../middleware/multer";
 import reqEditAdminProfileValidation from "../validation/reqValidation/req.editAdminProfile.vaidation";
 import authToken from "../common/authToken";
@@ -39,7 +39,7 @@ router.post('/addUser',authToken,upLoadImage.single('userProfile'), reqAddUserVa
 router.get('/activeUser/:id/:page/:limit/',authToken,activeUser)
 router.delete('/deleteUser/:id/:page/:limit/',authToken,deleteUser)
 router.post("/editProfile",authToken,upLoadImage.single("userProfile"),editUser);
-
+router.get("/singleUserProfile/:id", authToken, getSingleUserProfile);
 
 router.post("/addProduct",authToken,upLoadImage.fields([{name:"bannerImage",maxCount:1},{name:"mulImage"}]),reqAddProductValidation,addProduct)
 router.get('/activeProduct/:id/:page/:limit/',authToken, activeProduct)

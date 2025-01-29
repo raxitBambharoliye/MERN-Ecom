@@ -7,7 +7,7 @@ header {
     padding: 10px 15px;
     background-color: var(--black);
     color: var(--white);
-    z-index: 9999;
+    z-index: 999;
 }
 
 /* --logo-- */

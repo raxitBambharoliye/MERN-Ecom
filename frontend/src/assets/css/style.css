@@ -23,6 +23,10 @@
     padding: 0 !important;
 }
 
+.modal .ValidationError {
+    font-size: 16px;
+}
+
 html {
     min-width: 500px;
 }
@@ -178,6 +182,10 @@ label {
     scroll-snap-align: center;
     display: flex;
     justify-content: center;
+}
+
+.btn-them.iconButton {
+    padding: 2px 8px !important;
 }
 
 /* coman tag */
@@ -746,9 +754,11 @@ footer .d-flex {
     height: 39rem;
     box-shadow: 0 0 15px 3px rgb(185 182 182 / 52%);
 }
-.profileLeft img{
+
+.profileLeft img {
     object-fit: cover;
 }
+
 .profileLeft .profilePic {
     width: 170px;
     height: 170px;
@@ -821,6 +831,7 @@ footer .d-flex {
     box-shadow: 0 0 4px 1px rgb(185 182 182 / 52%);
     cursor: pointer;
     transition: all .2s linear;
+    position: relative;
 }
 
 .addressesItem:hover {
@@ -845,7 +856,27 @@ footer .d-flex {
     font-size: 20px;
 }
 
-
+.addressesItem .buttons {
+    position: absolute;
+    right: 4%;
+}
+.addressesItem .buttons button{
+    background: transparent;
+    border: none;
+    padding: 2px 8px;
+    font-size: 18px;
+    background: rgba(191, 191, 191, 0.407);
+    margin: 0 4px;
+    border-radius: 6px;
+}
+.addressesItem .buttons button.edit:hover{
+    color:#14a90a ;
+    background: #9ff798b7;
+}
+.addressesItem .buttons button.delete:hover{
+    color:#d20d0d ;
+    background: #f86f7f99;
+}
 .spanRow {
     scroll-snap-type: x mandatory;
     overflow: scroll;
@@ -970,7 +1001,8 @@ html>::-webkit-scrollbar-track {
     position: relative;
     overflow: hidden;
 }
-.previewImageLabel img{
+
+.previewImageLabel img {
     object-fit: cover;
 }
 

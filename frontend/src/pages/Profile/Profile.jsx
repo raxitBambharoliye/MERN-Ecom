@@ -1,21 +1,37 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { EditProfile } from '../../components';
+import { Button, EditProfile } from '../../components';
 import { Link } from 'react-router-dom';
 import { logOut } from '../../store/auth.slice';
+import AddAddress from '../../components/AddAddress/AddAddress';
+import { shortString } from '../../utility/common';
+import EditAddress from '../../components/AddAddress/EditAddress';
+import { setEditAddress } from '../../store/data.slice';
+import axiosClient from '../../utility/api/axiosClient';
+import { APP_URL } from '../../components/constant';
 
 function Profile() {
-    const [image, setImage] = useState('./image/userPro.png')
     const dispatch = useDispatch();
+    const [userAddress, setUserAddress] = useState([]);
     const auth = useSelector((state) => state.AuthReducer);
-
-
     const time = getTime();
     const logOutHandler = () => {
-        console.log("test run")
         dispatch(logOut())
     }
-
+    useEffect(() => {
+        setUserAddress(auth.address)
+    }, [auth.address])
+    const deleteUserAddress =async (id) => { 
+        try {
+            const response = await axiosClient.get(`${APP_URL.BE_DELETE_ADDRESS}/${id}`);
+            if (response && response.status === 200) {
+                setUserAddress(response.data.address)
+            }
+        } catch (error) {
+            console.log("test", error)
+            console.log('error.response', error.response)
+        }
+    }
     return (
         <>
             <section className='ProfileView'>
@@ -45,32 +61,29 @@ function Profile() {
                             <div className="profileRight">
                                 <h2 className='profileTitle'>{time} {auth.userData.userName}</h2>
                                 <div className="addresses">
-                                    <div className="addressesTitle">
+                                    <div className="addressesTitle d-flex justify-content-between">
                                         <h3>Your Addresses</h3>
+                                        <Button className={"iconButton"} data-bs-toggle="modal" data-bs-target="#AddAddressModal" ><i className="fa-solid fa-plus"></i></Button>
                                     </div>
                                     <div className="addressesInner mt-2 ">
                                         <div className="row gx-2 spanRow">
-                                            <div className="col-6 spanItem">
-                                                <div className="addressesItem active">
-                                                    <h4>raxit  patel</h4>
-                                                    <h5>surat, gujarat, india</h5>
-                                                    <p>142, dharma raj park so.,simada gam , nana vara ...</p>
+
+                                            {(userAddress && userAddress.length <= 0) &&
+                                                <div className=" w-100 h-100 d-flex align-items-center justify-content-center"><h2 className='noReviewText'>No Address at</h2></div>}
+
+                                            {userAddress && userAddress.map((address, index) => (
+                                                <div className="col-9 col-md-6 col-lg-6 spanItem" key={`userAddress${index}`}>
+                                                    <div className="addressesItem active">
+                                                        <div className="buttons">
+                                                            <button className='edit' data-bs-toggle="modal" data-bs-target="#EditAddressModal" onClick={(e)=>{dispatch(setEditAddress(address))}} ><i className="fa-solid fa-pen"></i></button>
+                                                            <button className='delete' onClick={(e)=>{deleteUserAddress(address._id)}}><i className="fa-solid fa-trash-can"></i></button>
+                                                        </div>
+                                                        <h4>{address.title}</h4>
+                                                        <h5>{address.city}, {address.state}, {address.country}</h5>
+                                                        <p>{shortString(address.address1,50)}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="col-6 spanItem">
-                                                <div className="addressesItem">
-                                                    <h4>raxit  patel</h4>
-                                                    <h5>surat, gujarat, india</h5>
-                                                    <p>142, dharma raj park so.,simada gam , nana vara ...</p>
-                                                </div>
-                                            </div>
-                                            <div className="col-6 spanItem">
-                                                <div className="addressesItem">
-                                                    <h4>raxit  patel</h4>
-                                                    <h5>surat, gujarat, india</h5>
-                                                    <p>142, dharma raj park so.,simada gam , nana var...</p>
-                                                </div>
-                                            </div>
+                                            ))}
                                         </div>
                                     </div>
 
@@ -135,7 +148,8 @@ function Profile() {
                 </div>
             </section>
             <EditProfile />
-
+            <AddAddress />
+            <EditAddress/>
         </>
     )
 }

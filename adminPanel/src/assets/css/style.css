@@ -7,8 +7,8 @@
     --black: #0d0d0d;
     --light-black: #404040;
     --light-black-tra: #404040ac;
-    --light-blue:#9da1cc;
-    --light-blue-tra:#bcbfe7db;
+    --light-blue: #9da1cc;
+    --light-blue-tra: #bcbfe7db;
 }
 
 * {
@@ -16,7 +16,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-.table-hover>tbody>tr:hover>*{
+
+.table-hover>tbody>tr:hover>* {
     --bs-table-bg-state: var(--light-gray) !important;
     --bs-table-color: var(--gray) !important;
 
@@ -27,13 +28,15 @@ body {
     font-family: "Poppins", sans-serif;
     font-family: 16px;
 }
-.pageTitle{
+
+.pageTitle {
     text-transform: capitalize;
     margin: 12px 0;
     margin-left: 12px;
     color: var(--light-black);
 }
-.logoCom{
+
+.logoCom {
     font-family: "Lobster", sans-serif;
 }
 
@@ -42,31 +45,36 @@ body {
     font-weight: bold;
 }
 
-.validationError{
+.validationError {
     color: #cb2525;
 }
 
-.activeModalTitle{
+.activeModalTitle {
     color: var(--black);
     /* font-weight: 400; */
     font-size: 18px;
 }
-.activeModalTitle span{
+
+.activeModalTitle span {
     font-weight: 600;
 }
-.searchInput label{
+
+.searchInput label {
     color: var(--gray);
     margin-left: 10px;
     top: 50%;
     transform: translateY(-50%);
 }
-.searchInput input{
+
+.searchInput input {
     background-color: var(--bg-white) !important;
     padding-left: 35px;
 }
-#main{
+
+#main {
     flex-grow: 1;
 }
+
 .iconButton {
     margin-right: 1rem;
     width: 2.5rem;
@@ -108,36 +116,42 @@ aside {
 .hide {
     transform: translateX(-200%);
 }
+
 /* previewImage */
-.previewImageLabel{
-position: relative;
-overflow: hidden;
+.previewImageLabel {
+    position: relative;
+    overflow: hidden;
 }
+
 .previewImageLabel i {
     color: transparent;
     font-size: 23px;
     transition: all .2s linear;
 
 }
-.previewImageLabel::before{
+
+.previewImageLabel::before {
     content: '';
     width: 100%;
-    height:  100%;
+    height: 100%;
     position: absolute;
     cursor: pointer;
     transition: all .2s linear;
 }
-.previewImageLabel:hover::before{
+
+.previewImageLabel:hover::before {
     background-color: #11111197;
 }
-.previewImageLabel:hover i{
+
+.previewImageLabel:hover i {
     color: var(--bg-white);
 }
-.removeImgBtn{
+
+.removeImgBtn {
     position: absolute;
     z-index: 999;
-    right:5px;
-    top: 5px  ;
+    right: 5px;
+    top: 5px;
     display: block;
     width: 25px;
     height: 25px;
@@ -146,29 +160,34 @@ overflow: hidden;
     color: var(--bg-white);
     border: none;
 }
+
 /* button class */
-.themButtonFill{
+.themButtonFill {
     background-color: var(--black);
     color: var(--bg-white);
     border: 2px solid var(--black);
     transition: all .2s linear;
 }
-.themButtonFill:hover{
+
+.themButtonFill:hover {
     border: 2px solid var(--black);
-    background-color: transparent ;
-    color: var(--black) ;
+    background-color: transparent;
+    color: var(--black);
 }
-.themButtonBorder{
+
+.themButtonBorder {
     background-color: transparent;
     color: var(--black);
     border: 2px solid var(--black);
     transition: all .2s linear;
 }
-.themButtonBorder:hover{
+
+.themButtonBorder:hover {
     border: 2px solid var(--black);
-    background-color: var(--black) ;
-    color: var(--bg-white) ;
+    background-color: var(--black);
+    color: var(--bg-white);
 }
+
 /* input type password eye icon  */
 .PasswordEyeButton {
     border: none;
@@ -190,54 +209,73 @@ input.themInput:focus {
     box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 25%);
     border-color: #0d0d0d;
 }
-.addDataFrom{
+
+.addDataFrom {
     background-color: var(--bg-white);
-    padding: 30px ;
+    padding: 30px;
     border-radius: 12px;
 }
-.tableViewImage img{
+
+.tableViewImage img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
 }
-.tableViewActionButton{
- border: none;
- display: flex;
- align-items: center;
- justify-content: center;
- font-size: 18px;
- padding: 4px 8px;
- width: 40px;
- height: 40px;
- background-color: var(--light-gray);
- border-radius: 6px;
- margin: 0 6px;
- transition: all .2s linear;
+
+.tableViewActionButton {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    padding: 4px 8px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-gray);
+    border-radius: 6px;
+    margin: 0 6px;
+    transition: all .2s linear;
 }
-.tableViewActionButton.delete:hover{
+
+.tableViewActionButton.delete:hover {
     color: #fe0101;
     background-color: #ad33332b;
 }
-.tableViewActionButton.edit:hover{
+
+.tableViewActionButton.edit:hover {
     color: #5101fe;
     background-color: #926edf5d;
 }
-.tableViewActionButton.active{
+
+.tableViewActionButton.view:hover {
+    color: #fbff03;
+    background-color: #97a62cbf;
+}
+
+.tableViewActionButton.active {
     background-color: transparent;
 }
-tr.active{
+
+.tableViewActionButton a {
+    color: inherit;
+}
+
+tr.active {
     --bs-table-color: var(--gray);
-    --bs-table-bg: var(--light-gray) ;
-    --bs-table-hover-color:var(--gray)
+    --bs-table-bg: var(--light-gray);
+    --bs-table-hover-color: var(--gray)
 }
-tr.active img{
-   opacity: 0.5;
+
+tr.active img {
+    opacity: 0.5;
 }
+
 .cuPagination {
     margin-top: 12px;
 }
+
 .cuPagination li {
     display: block;
     min-width: 35px;
@@ -250,14 +288,54 @@ tr.active img{
     cursor: pointer;
     transition: all.2s linear;
 }
-.cuPagination li.active{
+
+.cuPagination li.active {
     background-color: var(--light-blue);
 
 }
-.cuPagination li:hover{
+
+.cuPagination li:hover {
     background-color: var(--light-blue);
 }
-.cuPagination li  a{
+
+.cuPagination li a {
     color: inherit;
     text-decoration: none;
+}
+
+/* single User profile Page */
+.singleUserProfileInner {
+    background: var(--bg-white);
+    box-shadow: inset;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px 1px #cdcdcd;
+}
+
+.singleUserProfileInner .profile {
+     display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: fit-content;
+}
+
+.singleUserProfileInner .profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.singleUserProfileInner .userData li {
+    list-style: none;
+    padding: 8px 0;
+}
+.singleUserProfileInner .userData li span{
+    font-weight: 700;
+   color: black !important;
+    margin-right: 8px;
+}
+.singleUserProfileInner .userData li{
+    color: var(--gray);
 }

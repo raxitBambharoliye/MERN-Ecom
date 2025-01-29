@@ -1,5 +1,6 @@
 import { MODAL } from "../constant";
 import { UserIn } from "../interface/User.intereface";
+import Address_Modal from "../model/address.modal";
 import AdminModal from "../model/admin.modal";
 import CategoryModal from "../model/category.modal";
 import ContactModal from "../model/constact.model";
@@ -29,6 +30,9 @@ class MongoQ {
         break;
       case MODAL.PRODUCT_REVIEW_MODAL:
         this.collection = Product_Review_modal;
+        break;
+      case MODAL.ADDRESS_MODAL:
+        this.collection = Address_Modal;
         break;
     }
   }

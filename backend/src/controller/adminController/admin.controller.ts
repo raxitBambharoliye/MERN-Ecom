@@ -8,6 +8,7 @@ import { generateToken } from "../../common/generateToken";
 import fs from "fs";
 import path from "path";
 import { UserIn } from "../../interface/User.intereface";
+import AddressIN from "../../interface/Address.interface";
 
 const getAllUsers = async (page: any, limit: any, search: any) => {
   try {
@@ -424,6 +425,22 @@ const editUser = async (req: any, res: any) => {
     logger.error(`CATCH ERROR : IN : user : editProfile : 🐞🐞🐞 : \n `, error);
   }
 };
+const getSingleUserProfile = async (req: any, res: any) => {
+  try {
+    if (!req.params.id) {
+      return res.status(400).json({message:"user not found"})
+    }
+    const userData = await MQ.findById<UserIn>(MODAL.USER_MODAL, req.params.id);
+    if (!userData) {
+      return res.status(400).json({ message: "user not found" });
+    }
+    const userAddress = await MQ.find<AddressIN[]>(MODAL.ADDRESS_MODAL, { userId: userData.id });
+    return res.status(200).json({ userData, address: userAddress });
+  } catch (error) {
+    logger.error(`CATCH ERROR : IN : admin : getSingleUserProfile : 🐞🐞🐞 : \n `, error);
+
+  }
+}
 export {
   AdminLogin,
   AdminAdd,
@@ -436,4 +453,5 @@ export {
   activeUser,
   deleteUser,
   editUser,
+  getSingleUserProfile,
 };

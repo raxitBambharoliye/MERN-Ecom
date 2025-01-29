@@ -6,9 +6,10 @@ import { logOut } from '../../store/auth.slice';
 import { useDispatch } from 'react-redux';
 import '../../assets/css/header.css'
 import { useState } from 'react';
+import { APP_URL } from '../constant';
 function Header() {
   const auth = useSelector((state) => state.AuthReducer);
-  const Menu = [{ title: "home", path: "/" }, { title: "products", path: "/products" }, { title: "Sale", path: "/sale" }, { title: "About", path: "/about" }, { title: "concat", path: "/contact" },]
+  const Menu = [{ title: "home", path: APP_URL.FE_HOME }, { title: "products", path: APP_URL.FE_PRODUCTS }, { title: "Sale", path: APP_URL.FE_SALE }, { title: "About", path: APP_URL.FE_ABOUT }, { title: "concat", path: APP_URL.FE_CONTACT },]
   const dispatch = useDispatch();
   const logOutHandler = () => {
     dispatch(logOut());
@@ -47,7 +48,7 @@ function Header() {
                           </button>
                         </li>
                         <li>
-                          <Link className="dropdown-item" to="/profile">
+                          <Link className="dropdown-item" to={APP_URL.FE_PROFILE}>
                             <i className="fa-solid fa-user m-0 me-2" />
                             Edit Profile
                           </Link>

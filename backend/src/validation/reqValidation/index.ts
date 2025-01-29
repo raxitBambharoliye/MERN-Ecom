@@ -1,13 +1,17 @@
+import reqAddAddressValidation from './req.addAddress.validation'
 import reqAddAdminVAlidation from './req.addAdmin.validation'
 import reqAddCategoryValidation from './req.addCategory.validation'
 import { reqAddContactValidation } from './req.addContact.validation'
 import reqAddProductValidation from './req.addProduct.validation'
 import reqAddProductReviewValidation from './req.addProductReview.validation'
+import reqEditAddressValidation from './req.editAddress.validation'
 import reqEditCategoryValidation from './req.editCategory.validation'
 import { reqEditProfileValidation } from './req.editProfile.validation '
 import { reqLoginValidation } from './req.login.validation'
 import { reqRegisterValidation } from './req.register.validation'
 export {
+    reqEditAddressValidation,
+    reqAddAddressValidation,
     reqAddProductReviewValidation,
     reqAddProductValidation,
     reqEditCategoryValidation,

@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import axiosClient from '../../utility/api/axiosClient'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSingleProductReview, setSingleProductSummary } from '../../store/data.slice'
+import { APP_URL } from '../constant'
 
 function AddReview() {
     const { id } = useParams();
@@ -28,7 +29,7 @@ function AddReview() {
             }
             data.userId = auth.userData._id;
             data.productId = id;
-            const response = await axiosClient.post('/user/addProductReview', data);
+            const response = await axiosClient.post(APP_URL.BE_ADD_PRODUCT_REVIEW, data);
             if (response && response.status === 200) {
                 closeButtonRef.current.click();
                 dispatch(setSingleProductSummary(response.data.reviewSummary));
@@ -126,4 +127,4 @@ function AddReview() {
         </>
     )
 }
-export default AddReview
+export default AddReview;

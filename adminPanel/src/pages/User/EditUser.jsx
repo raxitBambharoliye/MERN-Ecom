@@ -104,6 +104,7 @@ export default function EditUser({
                             className="btn-close"
                             data-bs-dismiss="modal"
                             aria-label="Close"
+                            onClick={(e)=>{dispatch(cleanAllData())}}
                         />
                     </div>
                     <div className="modal-body">

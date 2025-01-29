@@ -5,6 +5,7 @@ import { shortString } from '../../utility/common'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { changeSingleProductId } from '../../store/data.slice'
+import { APP_URL } from '../constant'
 function ProductItem({ product }) {
     console.log('product', product)
 
@@ -33,7 +34,7 @@ function ProductItem({ product }) {
                         </Link>
                     </div>
                     <div className="col-12 ">
-                        <Link to={`/singleProduct/${product._id}`} className='w-100 d-block'><Button className="productButton mt-2 w-100" onClick={(e) => { dispatch(changeSingleProductId(product._id)) }} >Read More </Button></Link>
+                        <Link to={`${APP_URL.FE_SINGLE_PRODUCT}/${product._id}`} className='w-100 d-block'><Button className="productButton mt-2 w-100" onClick={(e) => { dispatch(changeSingleProductId(product._id)) }} >Read More </Button></Link>
                     </div>
                 </div>
 

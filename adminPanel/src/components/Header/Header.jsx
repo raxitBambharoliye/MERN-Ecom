@@ -24,7 +24,7 @@ export default function Header() {
   })
 
   return (
-    <header >
+    <header className='mb-4'>
       <div className="d-flex align-items-center justify-content-between">
         <div className="logo d-flex align-items-center">
           <div className="toggleButton iconButton " onClick={toggleMenu}>

@@ -9,6 +9,7 @@ import Search from '../../components/Search/Search';
 import Pagination from '../../components/Pagination/Pagination';
 import Limit from '../../components/Limit/Limit';
 import EditUser from './EditUser';
+import { Link } from 'react-router-dom';
 // import EditCategory from './EditCategory';
 
 export default function ViewUser() {
@@ -97,7 +98,7 @@ export default function ViewUser() {
                 {viewData.map((element, index) => (
                   <tr key={index}>
                     <th >{index + 1}</th>
-                    <td><div className='d-flex align-items-center'><div className='tableViewImage'><img src={element.profile ? `${import.meta.env.VITE_BASE_URL}${element.profile}` : './image/dummy.jpg'} /></div><p className='m-0'>{element.userName}</p></div></td>
+                    <td><div className='d-flex align-items-center'><div className='tableViewImage'><img src={element.profile ? `${import.meta.env.VITE_BASE_URL}${element.profile}` : '/image/dummy.jpg'} /></div><p className='m-0'>{element.userName}</p></div></td>
                     <td>{element.email}</td>  
                     <td>{element.phone ?? "-"}</td>  
                     <td>{element.editor ?? "-"}</td>  
@@ -113,6 +114,7 @@ export default function ViewUser() {
                       {(admin._id == element.creator || admin.role == 'admin') ? (<div className="d-flex">
                         <button className='tableViewActionButton delete' data-bs-toggle="modal" data-bs-target="#deleteModal" onClick={(e) => { dispatch(setEditData(element)) }}><i className="fa-solid fa-trash" /></button>
                         <button className='tableViewActionButton edit' data-bs-toggle="modal" data-bs-target="#editUser" onClick={(e) => { dispatch(setEditData(element)) }} ><i className="fa-solid fa-user-pen" /></button>
+                        <button className='tableViewActionButton view'><Link to={`${APP_URL.RE_SINGLE_USER_PROFILE}/${element._id}`}><i class="fa-solid fa-eye" /></Link> </button>
 
                       </div>) : (
                         <p className='text-center m-0'> - </p>

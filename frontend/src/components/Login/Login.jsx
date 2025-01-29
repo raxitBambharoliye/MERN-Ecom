@@ -4,7 +4,8 @@ import Register from '../Register/Register'
 import { Link, Navigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import axiosClient from '../../utility/api/axiosClient'
-import { getUser, setToken, setUser } from '../../utility/common'
+import { getUser, setDataInCookie, setToken, setUser } from '../../utility/common'
+import { APP_URL, COOKIE_KEY } from '../constant'
 
 function Login() {
     const inputRef = useRef();
@@ -18,13 +19,13 @@ function Login() {
 
     const submitHan = async (data) => {
         try {
+            const response = await axiosClient.post(APP_URL.BE_LOGIN, data);
+            setToken(response.data.token);
+            setUser(response.data.user);
+            setDataInCookie(COOKIE_KEY.ADDRESS, response.data.address);
+            window.location.reload();
 
-            const response = await axiosClient.post('/user/login', data);
-                setToken(response.data.token);
-                setUser(response.data.user); 
-                window.location.reload();
-            
-        } catch (error) { 
+        } catch (error) {
             console.log(error)
             if (error && error.response.status && error.response.status == 400 && error.response.data.error.length > 0) {
                 error.response.data.error.forEach((element) => {
@@ -85,8 +86,8 @@ function Login() {
                         </div>
                         <div className="modal-footer">
                             <Link className='fromLInk' data-bs-toggle="modal" data-bs-target="#register" >create new Account</Link>
-                            < Button className=' rounded ' type='submit' children='LogIn'  />
-                        </div>              
+                            < Button className=' rounded ' type='submit' children='LogIn' />
+                        </div>
                     </form>
                 </div>
             </div>

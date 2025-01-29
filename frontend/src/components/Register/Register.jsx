@@ -3,6 +3,7 @@ import { Button, Input, PreviewImage } from '../common';
 import { useForm } from 'react-hook-form';
 import axiosClient from '../../utility/api/axiosClient';
 import { setToken, setUser } from '../../utility/common';
+import { APP_URL } from '../constant';
 
 function Register() {
     const inputRef = useRef();
@@ -19,7 +20,7 @@ function Register() {
             formData.append("userName", data.userName);
             formData.append("password", data.password);
 
-            const response = await axiosClient.post('/user/register', formData)
+            const response = await axiosClient.post(APP_URL.BE_REGISTER, formData)
             if (response.status === 200 && response.data.token != '' && response.data.user) {
                 setToken(response.data.token);
                 setUser(response.data.user);

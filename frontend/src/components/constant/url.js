@@ -1,5 +1,20 @@
 export default Object.freeze({
+    FE_HOME:"/",
+    FE_ABOUT: '/about',
+    FE_CONTACT: '/contact',
+    FE_PRODUCTS: '/products',
+    FE_PROFILE: '/profile',
+    FE_SALE: '/sale',
+    FE_SINGLE_PRODUCT: '/singleProduct',
+
     BE_GET_ALL_CATEGORY: '/frontend/userAllCategory',
     BE_GET_ALL_PRODUCT: '/frontend/allProduct',
     BE_GET_SINGLE_PRODUCT: "/frontend/singleProduct",
+    BE_ADD_PRODUCT_REVIEW: '/user/addProductReview',
+    BE_EDIT_USER_PROFILE: '/user/editProfile',
+    BE_LOGIN: '/user/login',
+    BE_REGISTER: '/user/register',
+    BE_ADD_ADDRESS: '/user/addAddress',
+    BE_EDIT_ADDRESS: '/user/editAddress',
+    BE_DELETE_ADDRESS: '/user/deleteAddress',
 })
