@@ -25,3 +25,5 @@
 - edit address page
 - show address on profile page 
 - change address module 
+
+- complete single user page with address edit update and delete.
